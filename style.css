@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+:root {
+  --accent: rgba(114, 122, 73);
+  --accent-opacity-06: rgba(114, 122, 73, 0.6);
+  --default: rgba(163, 163, 163);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--accent);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 300;
+}
+.todo {
+  background-color: white;
+  padding: 30px;
+  margin: 15px;
+  border-radius: 5px;
+  width: 90vw;
+}
+.todo__title {
+  text-align: center;
+}
+.todo__new {
+  --size: 32px;
+  display: flex;
+  margin: 16px 0 16px;
+}
+input {
+  outline: none;
+}
+.todo__new input {
+  flex-grow: 1;
+  border: 2px solid var(--accent-opacity-06);
+  border-radius: 4px;
+  margin-right: 16px;
+  font-size: 16px;
+  padding: 8px 16px;
+  height: var(--size);
+  width: auto;
+}
+.todo__new input:hover {
+  border-color: var(--accent);
+}
+.todo__massage {
+  color: var(--accent);
+}
+.todo__add,
+.todo__task-del {
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: var(--size);
+  background-color: var(--accent-opacity-06);
+  min-width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  font-size: 32px;
+  font-weight: 300;
+  color: white;
+}
+.todo__add:hover {
+  background-color: var(--accent);
+}
+.todo__list > *:not(:last-child) {
+  margin-bottom: 8px;
+}
+.todo__task {
+  --size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+.todo__task_complete .todo__task-text {
+  text-decoration: line-through;
+  color: var(--default);
+}
+.todo__checkbox {
+  margin-right: 16px;
+}
+.todo__checkbox input {
+  display: none;
+}
+.todo__checkbox div {
+  --size: 26px;
+  cursor: pointer;
+  width: var(--size);
+  height: var(--size);
+  border: 1px solid var(--accent-opacity-06);
+  border-radius: 10%;
+  position: relative;
+}
+.todo__checkbox input:checked + div {
+  background-color: var(--accent-opacity-06);
+}
+
+.todo__checkbox input:checked + div::after {
+  display: block;
+}
+.todo__checkbox div::after {
+  content: '\1F5F8';
+  color: white;
+  text-align: center;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.todo__task-del {
+  opacity: 0;
+  margin-left: auto;
+  margin-right: 0;
+}
+.todo__task:hover .todo__task-del {
+  opacity: 1;
+}
+.hidden {
+  display: none;
+}
